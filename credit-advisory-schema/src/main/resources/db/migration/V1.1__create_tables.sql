@@ -36,12 +36,11 @@ create table if not exists applicant
 create table if not exists application
 (
     applicant_id bigint,
-    advisor_id   bigint
-        constraint CHECK_if_applicant_is_present check (applicant_id is not null),
-    "name"       text               not null,
+    advisor_id   bigint constraint CHECK_if_applicant_is_present check (applicant_id is not null),
     amount       decimal            not null,
-    app_status   application_status not null,
+    app_status   application_status not null default 'new'::home.application_status,
     created_at   timestamp          not null default now(),
+    assigned_at  timestamp          not null,
     constraint FK_application_applicant foreign key (applicant_id) references applicant (user_id) on delete cascade,
     constraint FK_application_advisor foreign key (advisor_id) references advisor (user_id) on delete cascade,
     constraint PK_application primary key (advisor_id, applicant_id)
@@ -62,11 +61,10 @@ create table if not exists address
 
 create table if not exists phone_number
 (
-    id           bigserial,
-    number       text not null,
-    phone_type   phone_type  not null,
     applicant_id bigint,
-    constraint PK_phone_number primary key (id),
-    constraint FK_phone_number_applicant foreign key (applicant_id) references applicant(user_id) on delete cascade,
+    number       text       not null,
+    phone_type   phone_type not null,
+    constraint PK_phone_number primary key (applicant_id),
+    constraint FK_phone_number_applicant foreign key (applicant_id) references applicant (user_id) on delete cascade,
     constraint UQ_phone_number_number unique (number)
 )

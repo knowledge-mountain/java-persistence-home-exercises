@@ -5,3 +5,4 @@ spring:
     password: postgres
   flyway:
     defaultSchema: home
+    baselineOnMigrate: true
