@@ -6,8 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
-
+name: Java Persistence Home Exercises (Continuous Integration Workflow)
 on:
   push:
     branches: [ "main" ]
@@ -16,9 +15,21 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+#        options: >-
+#          --health-cmd pg_isready
+#          --health-internal 10s
+#          --health-timeout 5s
+#          --health-retries 5
+        port:
+          - 5432:5432
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 21
