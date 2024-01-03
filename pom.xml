@@ -27,6 +27,7 @@
     <modules>
         <module>credit-advisory-schema</module>
         <module>picture-stealer</module>
+        <module>row-level-locks</module>
     </modules>
 
     <dependencyManagement>
