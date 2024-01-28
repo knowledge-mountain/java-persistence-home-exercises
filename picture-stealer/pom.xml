@@ -5,26 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.basbase</groupId>
         <artifactId>persistence-homeworks</artifactId>
+        <groupId>com.basbase</groupId>
         <version>0.1.0</version>
     </parent>
 
     <artifactId>picture-stealer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <properties>
-        <spring-boot-maven-plugin.version>3.2.1</spring-boot-maven-plugin.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>
@@ -53,11 +49,6 @@
             <artifactId>byte-buddy-agent</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
         </dependency>
@@ -68,7 +59,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>${maven.compiler.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
