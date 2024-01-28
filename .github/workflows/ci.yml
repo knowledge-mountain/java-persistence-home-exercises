@@ -43,14 +43,3 @@ jobs:
       uses: codecov/codecov-action@v3
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      with:
-        coverage:
-          status:
-            project:
-              default:
-                target: 90%
-                threshold: 0.5%
-            patch:
-              default:
-                target: 80%
-                threshold: 0.5%
